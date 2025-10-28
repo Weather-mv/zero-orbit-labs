@@ -3,32 +3,47 @@
 
 @font-face {
   font-family: 'Montserrat-Regular';
-  src: url('./assets/fonts/Montserrat-Regular.ttf') format('opentype');
+  src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Montserrat-Bold';
-  src: url('./assets/fonts/Montserrat-Bold.ttf') format('opentype');
+  src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
   font-weight: 700;
 }
 
 @font-face {
   font-family: 'Montserrat-SemiBold';
-  src: url('./assets/fonts/Montserrat-SemiBold.ttf') format('opentype');
+  src: url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
   font-weight: 600;
 }
 
 @font-face {
   font-family: 'Montserrat-Medium';
-  src: url('./assets/fonts/Montserrat-Medium.ttf') format('opentype');
+  src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
   font-weight: 500;
 }
 
 @font-face {
   font-family: 'Cocogoose-Regular';
-  src: url('./assets/fonts/Cocogoose-Pro-Regular-trial.ttf') format('truetype');
+  src: url('../fonts/Cocogoose-Pro-Regular-trial.ttf') format('truetype');
   font-weight: 100;
+}
+@font-face {
+  font-family: 'integral-Heavy';
+  src: url('../fonts/IntegralCF-Heavy.otf') format('opentype');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'integral-Regular';
+  src: url('../fonts/IntegralCF-Regular.otf') format('opentype');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'monument-regular';
+  src: url('../fonts/MonumentExtended-Regular.otf') format('opentype');
 }
 
 /* stylelint-enable font-family-no-missing-generic-family-keyword */
@@ -63,36 +78,36 @@
 }
 
 .hero-content {
-  padding-top: 7vh;
+  padding-top: 10vh;
   text-align: center;
   width: 100%; /* Ensures the container spans the full width */
   position: relative;
 }
 
 .hero-content h1 {
-  font-size: 7vw; /* Consistent font size based on viewport width */
+  font-size: 6.25vw; /* Consistent font size based on viewport width */
   line-height: 1.2; /* Adjusted to ensure text alignment */
   margin-bottom: 6px; /* Corrected font-style to font-family */
-  font-weight: 700;
-  font-style: 'Cocogoose-Regular';
+  font-family: 'Cocogoose-Regular';
   background: linear-gradient(180deg, #FF004C, #730000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-weight: 500;
+ 
   white-space: nowrap; /* Keeps text on a single line */
   display: inline-block; /* Ensures the element respects the text's natural width */
 }
 .highlight {
   color: #ffffff;
-  font-style: 'Cocogoose-Regular';
-  font-weight: 700;
-  font-size: 110px;
+  font-family: 'Cocogoose-Regular';
+  font-weight: 500;
+  font-size: 108px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  margin: 50px;
 }
 
 .categories {
@@ -107,10 +122,11 @@
 
 .hero-content p {
   font-style: 'Montserrat-Regular';
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto 30px;
   opacity: 0.9;
-  font-size: 20px;
+  font-size: 23px;
+  padding: 50px;
 }
 
 .buttons {
@@ -201,17 +217,19 @@
 }
 
 .solutions-section h2 {
-  font-size: 60px;
+  font-size: 80px;
   margin-bottom: 20px;
   text-align: left;
   margin-left: 70px;
-  
+  font-family: 'integral-Heavy';
+  font-weight: 900;
 }
 
 .solutions-section p {
   font-size: 18px;
   margin-bottom: 40px;
   opacity: 0.7;
+  font-family: 'integral-Regular';
 }
 
 .design-solution-columns {
