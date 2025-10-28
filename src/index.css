@@ -13,25 +13,9 @@ body{
   color: #ffffff;
 }
 
-@font-face {
-  font-family: 'Montserrat-regular';
-  src: url('./assets/fonts/Montserrat-Regular.ttf') format('truetype');
-  
-  font-family: 'Montserrat-bold';
-  src: url('./assets/fonts/Montserrat-bold') format('truetype');
 
-  font-family: 'Montserrat-semiBold';
-  src: url('./assets/fonts/Montserrat-semiBold') format('truetype');
-  
-  font-family: 'Montserrat-medium';
-  src: url('./assets/fonts/Montserrat-medium') format('truetype');
-
-  font-family: 'Cocogoose-Regular';
-  src: url('./assets/fonts/Cocogoose-Pro-Regular-trial.ttf') format('truetype');
-
-}
 
 #hero{
-  font-family: 'Cocogoose-Regular';
+
   font-weight: 400;
 }
