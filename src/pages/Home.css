@@ -211,107 +211,282 @@
   margin-bottom: 20px;
 }
 
+/* Solutions Section */
 .solutions-section {
-  padding: 50px 20px;
-  text-align: center;
+  background-color: #000;
+  color: #fff;
+  padding: 80px 60px 60px;
 }
 
 .solutions-section h2 {
   font-size: 80px;
-  margin-bottom: 20px;
-  text-align: left;
-  margin-left: 70px;
-  font-family: 'integral-Heavy';
+  font-family: 'integral-Heavy', sans-serif;
   font-weight: 900;
+  margin-bottom: 60px;
+  letter-spacing: -2px;
 }
 
-.solutions-section p {
-  font-size: 18px;
-  margin-bottom: 40px;
-  opacity: 0.7;
-  font-family: 'integral-Regular';
-}
-
-.design-solution-columns {
+/* Main Header Grid */
+.solutions-header {
   display: grid;
-  grid-template-columns: repeat(1, 1fr); /* no space after repeat */
-  gap: 40px;
-  max-width: 1200px;
-  margin: 1 auto; /* centers the grid */
-  padding-left: 1px; /* adds left spacing */
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-bottom: 80px;
+  align-items: start;
 }
 
-
-.dev-solution-columns {
-  display: grid;
-  grid-template-columns: repeat (1, 1fr);
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+.solutions-header-left h3 {
+  font-size: 45px;
+  font-family: 'integral-Heavy', sans-serif;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0;
 }
 
-.video-solution-columns {
-  display: grid;
-  grid-template-columns: repeat (1, 1fr);
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (min-width: 1024px) {
-  .solution-columns {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.solution-column h3 {
-  color: #fff;
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
-.solution-column p {
-  margin-bottom: 20px;
+.solutions-header-right p {
+  font-size: 16px;
+  line-height: 1.8;
   opacity: 0.9;
+  margin: 0;
+  font-family: 'integral-Regular', sans-serif;
 }
 
-.solution-column ul {
+/* Solution Items */
+.solution-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 80px 0;
+  border-top: 1px solid #333;
+}
+
+.solution-item:first-of-type {
+  border-top: none;
+}
+
+/* Design Section - Normal Order */
+.solution-item.design .solution-content {
+  order: 1;
+}
+
+.solution-item.design .solution-list {
+  order: 2;
+}
+
+/* Development Section - Reversed Order */
+.solution-item.development .solution-content {
+  order: 2;
+}
+
+.solution-item.development .solution-list {
+  order: 1;
+}
+
+/* Video Section - Normal Order */
+.solution-item.video .solution-content {
+  order: 1;
+}
+
+.solution-item.video .solution-list {
+  order: 2;
+}
+
+.solution-content h3 {
+  font-size: 48px;
+  font-family: 'integral-Heavy', sans-serif;
+  font-weight: 900;
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+
+.solution-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin: 0;
+  font-family: 'integral-Regular', sans-serif;
+}
+
+.solution-list ul {
   list-style: none;
   padding: 0;
-  
+  margin: 0;
+}
+
+.solution-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
   font-size: 16px;
+  line-height: 1.6;
+  font-family: 'integral-Regular', sans-serif;
 }
 
-.solution-column li {
-  margin-bottom: 10px;
+.solution-list li::before {
+  content: '▬';
+  color: #ff0000;
+  margin-right: 16px;
+  flex-shrink: 0;
+  font-size: 14px;
 }
 
-.mission {
-  max-width: 800px;
-  margin: 40px auto;
-  text-align: center;
-  opacity: 0.9;
-}
-
+/* Custom Section */
 .custom-section {
-  background-color: #e5e7eb;
+  background-color: #f5f5f5;
   color: #000;
-  padding: 50px 20px;
-  text-align: center;
+  padding: 100px 60px;
 }
 
 .custom-section h2 {
-  font-size: 60px;
-  margin-bottom: 20px;
+  font-size: 80px;
+  font-family: 'integral-Heavy', sans-serif;
+  font-weight: 900;
+  margin-bottom: 30px;
+  letter-spacing: -2px;
 }
 
-.custom-section p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.custom-section p:nth-child(2) {
+.custom-section .custom-subtitle {
+  font-size: 48px;
+  font-family: 'integral-Heavy', sans-serif;
+  font-weight: 900;
   margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.custom-section .custom-description {
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 900px;
+  margin-bottom: 50px;
+  font-family: 'integral-Regular', sans-serif;
+}
+
+.btn-primary {
+  background-color: #ff0055;
+  color: #fff;
+  padding: 20px 50px;
+  border: none;
+  border-radius: 50px;
+  font-size: 24px;
+  font-family: 'integral-Heavy', sans-serif;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #e0004a;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .solutions-section {
+    padding: 60px 40px 40px;
+  }
+
+  .solutions-section h2 {
+    font-size: 60px;
+  }
+
+  .solutions-header {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .solutions-header-left h3 {
+    font-size: 36px;
+  }
+
+  .solution-item {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 0;
+  }
+
+  /* Reset order for mobile */
+  .solution-item.development .solution-content {
+    order: 1;
+  }
+
+  .solution-item.development .solution-list {
+    order: 2;
+  }
+
+  .solution-content h3 {
+    font-size: 40px;
+  }
+
+  .custom-section {
+    padding: 80px 40px;
+  }
+
+  .custom-section h2 {
+    font-size: 60px;
+  }
+
+  .custom-section .custom-subtitle {
+    font-size: 36px;
+  }
+
+  .btn-primary {
+    font-size: 20px;
+    padding: 18px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .solutions-section {
+    padding: 40px 20px 30px;
+  }
+
+  .solutions-section h2 {
+    font-size: 48px;
+    margin-bottom: 40px;
+  }
+
+  .solutions-header-left h3 {
+    font-size: 28px;
+  }
+
+  .solutions-header-right p {
+    font-size: 14px;
+  }
+
+  .solution-item {
+    padding: 40px 0;
+  }
+
+  .solution-content h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .solution-content p,
+  .solution-list li {
+    font-size: 14px;
+  }
+
+  .custom-section {
+    padding: 60px 20px;
+  }
+
+  .custom-section h2 {
+    font-size: 48px;
+  }
+
+  .custom-section .custom-subtitle {
+    font-size: 28px;
+  }
+
+  .custom-section .custom-description {
+    font-size: 16px;
+  }
+
+  .btn-primary {
+    font-size: 18px;
+    padding: 16px 35px;
+  }
 }
 
 .works-section {

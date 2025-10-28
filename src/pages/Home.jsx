@@ -168,93 +168,96 @@ const Home = () => {
         {/* Placeholder for client logos */}
       </section>
 
-      {/* Solutions Section */}
-      <section id="solutions" className="solutions-section">
-        <h2>SOLUTIONS</h2>
-        <p>We are focused on automation</p>
-        <div className="solution-columns">
-          <article className="design-solution-column">
-            <h3>Design</h3>
-            <p>
-              From brand identity to UI/UX and marketing creatives, we design 
-              visuals that are not only aesthetically appealing but also 
-              strategically crafted to connect with your audience.
-            </p>
-            <ul>
-              <li>Brand Identity & Logo Design</li>
-              <li>Print & Publication Design</li>
-              <li>UI/UX & Web Design</li>
-              <li>Infographic Design</li>
-              <li>Social Media Design</li>
-              <li>3D Visualization & Product Mockups</li>
-            </ul>
-          </article>
-          <article className="dev-solution-column">
-            <h3>Development</h3>
-            <p>
-              We deliver modern web development, custom software, 
-              and powerful digital tools designed to streamline 
-              workflows, enhance user experience, and drive business 
-              growth.
-            </p>
-            <ul>
-              <li>Web Design & Development</li>
-              <li>Software & Application Development</li>
-              <li>Custom Tools & Plugin Development</li>
-              <li>E-Commerce Development</li>
-              <li>API Development & Integration</li>
-              <li>CMS Development</li>
-              <li>Maintenance & Support Services</li>
-            </ul>
-          </article>
-          <article className="video-solution-column">
-            <h3>Video Production</h3>
-            <p>
-              We create promotional films, animations, and storytelling 
-              videos that bring ideas to life, showcase products 
-              effectively, and build strong brand presence across 
-              platforms.
-            </p>
-            <ul>
-              <li>Promotional Videos</li>
-              <li>Motion Graphics & Visual Effects</li>
-              <li>Explainer Videos</li>
-              <li>Product Demonstration Videos</li>
-              <li>Client Testimonial Videos</li>
-              <li>Social Media Content Videos</li>
-              <li>Animated Videos (2D/3D)</li>
-              <li>Brand Films & Storytelling</li>
-              <li>Event Coverage & Highlights</li>
-            </ul>
-          </article>
-        </div>
-        <p className="mission">
-          We are more than a service provider — we are your creative and 
-          technical partner. At Zero Orbit Labs, we combine expertise in 
-          technology, design, and video production to deliver solutions that 
-          are innovative, functional, and impactful. Our approach is minimal 
-          yet powerful, ensuring every project is tailored to your goals, crafted 
-          with precision, and designed to make a lasting impression.
-        </p>
-      </section>
+ <section id="solutions" className="solutions-section">
+  <h2>SOLUTIONS</h2>
+  
 
-      {/* Custom Section */}
-      <section id="custom" className="custom-section">
-        <h2>CUSTOM</h2>
-        <p>NEED MORE?</p>
-        <p>
-          We aren't a Program that's just right for you. Precision-crafted solutions tailored to your unique 
-          brand needs. Elevating your digital experience and evolving your digital marketing strategies to drive 
-          radical results.
-        </p>
-        <button 
-          className="btn-primary" 
-          onClick={handleLetsTalk}
-          aria-label="Contact us for custom solutions"
-        >
-          Let's Talk
-        </button>
-      </section>
+  <div className="solutions-header">
+    <div className="solutions-header-left">
+      <h3>WE ARE<br />FOCUSED ON<br />AUTOMATION</h3>
+    </div>
+    <div className="solutions-header-right">
+      <p>
+        At Zero Orbit Labs, we bring together technology, design, and storytelling to deliver comprehensive experiences. Our solutions are built to help businesses scale, creators innovate, and brands connect meaningfully with their audience. From building powerful web platforms and crafting impactful designs to producing compelling video content, we provide everything you need to stand out in the digital world.
+      </p>
+    </div>
+  </div>
+
+
+  <article className="solution-item design">
+    <div className="solution-content">
+      <h3>Design</h3>
+      <p>
+        From brand identity to UI/UX and marketing creatives, we design visuals that are not only aesthetically appealing but also strategically crafted to connect with your audience.
+      </p>
+    </div>
+    <div className="solution-list">
+      <ul>
+        <li>Brand Identity & Logo Design</li>
+        <li>Print & Publication Design</li>
+        <li>UI/UX & Web Design</li>
+        <li>Infographic Design</li>
+        <li>Social Media Design</li>
+        <li>3D Visualization & Product Mockups</li>
+      </ul>
+    </div>
+  </article>
+
+
+  <article className="solution-item development">
+    <div className="solution-content">
+      <h3>Development</h3>
+      <p>
+        We deliver modern web development, custom software, and powerful digital tools designed to streamline workflows, enhance user experience, and drive business growth.
+      </p>
+    </div>
+    <div className="solution-list">
+      <ul>
+        <li>Web Design & Development</li>
+        <li>Software & Application Development</li>
+        <li>Custom Tools & Plugin Development</li>
+        <li>E-Commerce Development</li>
+        <li>API Development & Integration</li>
+        <li>CMS Development</li>
+        <li>Maintenance & Support Services</li>
+      </ul>
+    </div>
+  </article>
+
+  <article className="solution-item video">
+    <div className="solution-content">
+      <h3>Video Production</h3>
+      <p>
+        We create promotional films, animations, and storytelling videos that bring ideas to life, showcase products effectively, and build strong brand presence across platforms.
+      </p>
+    </div>
+    <div className="solution-list">
+      <ul>
+        <li>Promotional Videos</li>
+        <li>Motion Graphics & Visual Effects</li>
+        <li>Explainer Videos</li>
+        <li>Product Demonstration Videos</li>
+        <li>Client Testimonial Videos</li>
+        <li>Social Media Content Videos</li>
+        <li>Animated Videos (2D/3D)</li>
+        <li>Brand Films & Storytelling</li>
+        <li>Event Coverage & Highlights</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+
+<section id="custom" className="custom-section">
+  <h2>CUSTOM</h2>
+  <p className="custom-subtitle">NEED MORE?</p>
+  <p className="custom-description">
+    We'll create a Program that's just right for you. Precision-crafted solutions tailored to your unique brand needs. Elevating your digital experience and evolving your digital marketing strategies to drive radical results.
+  </p>
+  <button className="btn-primary" onclick="handleLetsTalk()" aria-label="Contact us for custom solutions">
+    Let's Talk
+  </button>
+</section>
 
       {/* Works Section */}
       <section id="works" className="works-section">
