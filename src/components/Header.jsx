@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../assets/Logo.png";
+import "../css/Header.css";
 
 const Header = () => {
   const scrollToSection = (id) => {
@@ -10,13 +11,21 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between items-center px-20 py-10 shadow-md bg-black fixed w-full z-50 text-20p">
-      <img src={Logo} alt="" className="w-11 "/>
-      <nav className="flex gap-6">
-        <button onClick={() => scrollToSection("home")} className="text-white-700 hover:text-red-600">Home</button>
-        <button onClick={() => scrollToSection("solutions")} className="text-white-700 hover:text-red-600">Solutions</button>
-        <button onClick={() => scrollToSection("works")} className="text-white-700 hover:text-red-600">Works</button>
-        <button onClick={() => scrollToSection("contact")} className="text-white-700 hover:text-red-600">Contact</button>
+  <header className="header">
+      <img src={Logo} alt="Logo" className="header-logo" />
+      <nav className="header-nav">
+        <button onClick={() => scrollToSection("hero")} className="nav-button">
+          Home
+        </button>
+        <button onClick={() => scrollToSection("solutions")} className="nav-button">
+          Solutions
+        </button>
+        <button onClick={() => scrollToSection("works")} className="nav-button">
+          Works
+        </button>
+        <button onClick={() => scrollToSection("contact")} className="nav-button">
+          Contact
+        </button>
       </nav>
     </header>
   );

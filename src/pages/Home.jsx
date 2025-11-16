@@ -1,13 +1,34 @@
 import React, { useState } from 'react'
-import './Home.css'
+import '../css/Home.css'
 
 const Home = () => {
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     message: ''
-  })
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Add your form submission logic here
+  };
+
+
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? -1 : index);
+  };
 
   // Smooth scroll to section
   const scrollToSection = (sectionId) => {
@@ -17,33 +38,8 @@ const Home = () => {
     }
   }
 
-  // Handle form input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    
-    // Add your form submission logic here (API call, etc.)
-    console.log('Form submitted:', formData)
-    
-    // Show success message or handle response
-    alert('Thank you for your message! We will get back to you soon.')
-    
-    // Reset form
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      message: ''
-    })
-  }
+
 
   // Handle "Let's Talk" button clicks
   const handleLetsTalk = () => {
@@ -112,24 +108,13 @@ const Home = () => {
               Let's Talk
             </button>
           </div>
-          <div className="categories">
-            <span>Tech</span>
-            <span>Media</span>
-            <span>Design</span>
-          </div>
-          <p>
-            We are a multidisciplinary studio delivering tech solutions, design solutions, and video productions 
-            that help businesses grow, creators innovate, and brands connect with their audience.
-          </p>
-       
-        </div>
-        
-        <aside className="social-links" aria-label="Social media links">
+
+           <aside className="social-links" aria-label="Social media links">
           <button 
             onClick={() => handleSocialClick('email')}
             className="social-button"
             aria-label="Send us an email"
-            title="Email us"
+            title="Email us"z
           >
             📧
           </button>
@@ -150,11 +135,35 @@ const Home = () => {
             🐦
           </button>
         </aside>
+
+        
+          <div className="categories">
+            <span>Tech</span>
+            <span>Media</span>
+            <span>Design</span>
+          </div>
+          <p>
+            We are a multidisciplinary studio delivering tech solutions, design solutions, and video productions 
+            that help businesses grow, creators innovate, and brands connect with their audience.
+          </p>
+       
+        </div>
+        
+    
         
         <div className="email">
           <a href="mailto:hello@zeroorbitlabs.in">hello@zeroorbitlabs.in</a>
         </div>
       </section>
+
+      {/* Project Card*/}
+
+      <div className="project-card">
+    <h2>Discuss your project idea</h2>
+    <button className="btn-start">
+      Start your project now →
+    </button>
+     </div>
 
       {/* Video Section */}
       <section id="video" className="video-section">
@@ -163,10 +172,28 @@ const Home = () => {
       </section>
 
       {/* Clients Section */}
-      <section id="clients" className="clients-section">
-        <h2>CLIENTS</h2>
-        {/* Placeholder for client logos */}
-      </section>
+      <section className="clients-section">
+    <h2>CLIENTS</h2>
+    <div className="clients-slider-container">
+      <div className="clients-slider">
+  
+        <div className="client-logo">
+          <img src="../src/assets/Vector Skill Academy.svg" alt="" />
+        </div>
+        <div className="client-logo">
+          <div className="shape-2"></div>
+        </div>
+        <div className="client-logo">
+          <div className="shape-3"></div>
+        </div>
+        <div className="client-logo">
+          <div className="shape-4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      {/* Solutions Section */}
 
  <section id="solutions" className="solutions-section">
   <h2>SOLUTIONS</h2>
@@ -247,180 +274,320 @@ const Home = () => {
   </article>
 </section>
 
-
+    {/* Custom Solutions Section */}
 <section id="custom" className="custom-section">
   <h2>CUSTOM</h2>
   <p className="custom-subtitle">NEED MORE?</p>
   <p className="custom-description">
     We'll create a Program that's just right for you. Precision-crafted solutions tailored to your unique brand needs. Elevating your digital experience and evolving your digital marketing strategies to drive radical results.
   </p>
-  <button className="btn-primary" onclick="handleLetsTalk()" aria-label="Contact us for custom solutions">
+  <button className="btn-primary" onClick={handleLetsTalk} aria-label="Contact us for custom solutions">
     Let's Talk
   </button>
 </section>
 
       {/* Works Section */}
-      <section id="works" className="works-section">
-        <h2>WORKS</h2>
-        <p>Where creativity meets execution</p>
-        <p>
-          Every project we create is built on a balance of creativity, functionality, 
-          and storytelling. From innovative web platforms to impactful brand 
-          identities and engaging videos, our work reflects our passion for helping 
-          businesses, creators, and brands connect with their audience. Explore 
-          our portfolio to see how we transform ideas into meaningful digital 
-          experiences.
-        </p>
-        <div className="works-grid">
-          <article className="work-item">
-            <h3>Pheonix Citadell</h3>
-            <p>We created a doodle animation promo video for Phoenix Citadel, 
-            designed to engage audiences with a fun, creative, and visually 
-            compelling storytelling style.</p>
-          </article>
-          <article className="work-item">
-            <h3>Growwed</h3>
-            <p>We partnered with Growwed to create website and products, 
-            delivering a clean, modern, and engaging solution that reflects the 
-            brand's vision of growth and connection.</p>
-          </article>
-          <article className="work-item">
-            <h3>Runfire Protection</h3>
-            <p>We created 3D promotional videos for Runfire Protection System, 
-            showcasing their products and solutions in a visually engaging 
-            and highly detailed manner to highlight functionality and safety 
-            features</p>
-          </article>
-          <article className="work-item">
-            <h3>Aditya Fire system</h3>
-            <p>We produced 3D promotional videos for Aditya Fire Protection 
-            System, highlighting their products and safety solutions with 
-            visually detailed and engaging animations to effectively 
-            communicate functionality and reliability.</p>
-          </article>
-          <article className="work-item">
-            <h3>Vector Skill Academy</h3>
-            <p>We designed and developed an EdTech website for Vector Skill Academy, 
-            creating a user-friendly and engaging platform that simplifies learning, 
-            enhances accessibility, and reflects the brand's focus on skill 
-            development.</p>
-          </article>
-          <article className="work-item">
-            <h3>Fair Share Bill Splitter</h3>
-            <p>We developed FairShare, a bill-splitting app that simplifies group 
-            payments and expense tracking. The app features an intuitive 
-            interface, seamless calculations, and real-time updates to make 
-            sharing costs effortless and transparent.</p>
-          </article>
+      <div id='works' className="works-container">
+
+    <header className="works-header">
+      <h1>WORKS</h1>
+      <div className="works-intro">
+        <div className="works-intro-left">
+          <h2>WHERE<br/>CREATIVITY<br/>MEETS<br/>EXECUTION</h2>
         </div>
-      </section>
+        <div className="works-intro-right">
+          <p>
+            Every project we create is built on a balance of creativity, functionality, and storytelling. From innovative web platforms to impactful brand narratives and cutting-edge video work, we bring your vision to life with precision, passion, and a commitment to delivering results that make an impact.
+          </p>
+        </div>
+      </div>
+    </header>
+
+
+    <article className="project-item">
+      <div className="project-content">
+        <h3>Pheonix Citadell</h3>
+        <p>
+          We created a doodle animation promo video for Phoenix Citadell Insurance to leverage business sales in a fun, colorful, and visually appealing way.
+        </p>
+      </div>
+      <div className="project-image">
+        <div className="project-image-placeholder">Project Image</div>
+      </div>
+    </article>
+
+   <article className="project-item">
+      <div className="project-content">
+        <h3>Growwed</h3>
+        <p>
+          We partnered with Growwed to create website and products, delivering a clean, modern, and engaging solution that reflects the beauty and fun of Growwed live.
+        </p>
+      </div>
+      <div className="project-image">
+        <div className="project-image-placeholder">Project Image</div>
+      </div>
+    </article>
+
+
+    <article className="project-item">
+      <div className="project-content">
+        <h3>Runfire Protection</h3>
+        <p>
+          We created an promotional video for Runfire Protection covers a dynamic and engaging presentation that highlights the company's fire safety services and state-of-the-art products, designed to convey trust, reliability and safety.
+        </p>
+      </div>
+      <div className="project-image">
+        <div className="project-image-placeholder">Project Image</div>
+      </div>
+    </article>
+
+
+    <article className="project-item">
+      <div className="project-content">
+        <h3>Aditya Fire system</h3>
+        <p>
+          We produced 3D promotional video for Aditya Fire Protection that showcases their state-of-the-art fire safety solutions with stunning visuals and engaging animation to effectively communicate functionality and reliability.
+        </p>
+      </div>
+      <div className="project-image">
+        <div className="project-image-placeholder">Project Image</div>
+      </div>
+    </article>
+
+    <article className="project-item">
+      <div className="project-content">
+        <h3>Vector Skill Academy</h3>
+        <p>
+          We developed and designed an e-learning & tech academy creating a user-friendly and engaging platform that simplifies learning, enhances accessibility, and reflects the brand's focus on skill advancement.
+        </p>
+      </div>
+      <div className="project-image">
+        <div className="project-image-placeholder">Project Image</div>
+      </div>
+    </article>
+
+    <article className="project-item">
+      <div className="project-content">
+        <h3>Fair Share Bill Splitter</h3>
+        <p>
+          We developed FairShare, a bill-splitting app built using Ionic and Angular development, designed to effortlessly manage group expenses, streamline cost-sharing, and keep finances transparent.
+        </p>
+      </div>
+      <div className="project-image">
+        <div className="project-image-placeholder">Project Image</div>
+      </div>
+    </article>
 
       {/* Why Choose Us Section */}
-      <section id="whyus" className="why-choose-section">
-        <h2>WHY CHOOSE US?</h2>
-        <p>We are more than a service provider — we are your creative and technical partner.</p>
-        <ul className="why-choose-content">
-          <li className="why-choose-item">
-            <h3>All-in-One Studio – Tech, Design & Video under one roof</h3>
-          </li>
-          <li className="why-choose-item">
-            <h3>Tailored Solutions – Every project customized to your goals</h3>
-          </li>
-          <li className="why-choose-item">
-            <h3>Creative + Functional – Balance of aesthetics and performance</h3>
-          </li>
-          <li className="why-choose-item">
-            <h3>Story-Driven Approach – We design experiences, not just deliverables</h3>
-          </li>
-          <li className="why-choose-item">
-            <h3>End-to-End Support – From idea to launch, we stay with you</h3>
-          </li>
-        </ul>
-      </section>
+    <section className="why-choose-us">
+      <div className="container">
+        <h1 className="title">WHY CHOOSE US?</h1>
+        
+        <p className="description">
+          We are more than a service provider — we are your creative and 
+          technical partner. At Zero Orbit Labs, we combine expertise in 
+          technology, design, and video production to deliver solutions that 
+          are not only visually stunning but also highly functional. Simple 
+          yet powerful, ensuring every project is tailored to your goals, crafted 
+          with precision, and designed to make a lasting impression.
+        </p>
+
+        <div className="features-list">
+          <div className="feature-item">
+            <p>All-in-One Studio – Tech, Design & Video under one roof</p>
+          </div>
+          
+          <div className="feature-item">
+            <p>Tailored Solutions – Every project customized to your goals</p>
+          </div>
+          
+          <div className="feature-item">
+            <p>Creative + Functional – Balance of aesthetics and performance</p>
+          </div>
+          
+          <div className="feature-item">
+            <p>Story-Driven Approach – We design experiences, not just deliverables</p>
+          </div>
+          
+          <div className="feature-item">
+            <p>End-to-End Support – From idea to launch, we stay with you</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
       {/* Our Process Section */}
-      <section id="process" className="process-section">
-        <h2>OUR PROCESS</h2>
-        <p>
+      <section className="our-process">
+      <div className="container">
+        <h1 className="title">OUR PROCESS</h1>
+        
+        <p className="description">
           We follow an automation-driven workflow that blends creativity, 
           technology, and efficiency. From ideation to execution, we 
           streamline every step using smart tools and custom-built 
           automations, ensuring faster delivery, consistent quality, and 
           scalable results.
         </p>
-        <ol className="process-steps">
-          <li className="step">IMAGINE</li>
-          <li className="step">CREATE</li>
-          <li className="step">LAUNCH</li>
-        </ol>
-      </section>
+      </div>
+
+      <div className="process-steps">
+        <div className="step-item step-1">
+          <div className="step-overlay"></div>
+          <h2 className="step-title">1) IMAGINE</h2>
+        </div>
+        
+        <div className="step-item step-2">
+          <div className="step-overlay"></div>
+          <h2 className="step-title">2) CREATE</h2>
+        </div>
+        
+        <div className="step-item step-3">
+          <div className="step-overlay"></div>
+          <h2 className="step-title">3) LAUNCH</h2>
+        </div>
+      </div>
+    </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="faq-section">
-        <h2>FAQ</h2>
-        <ul className="faq-content">
-          <li className="faq-item">
-            <h3>All-in-One Studio – Tech, Design & Video under one roof</h3>
-          </li>
-          <li className="faq-item">
-            <h3>Tailored Solutions – Every project customized to your goals</h3>
-          </li>
-          <li className="faq-item">
-            <h3>Creative + Functional – Balance of aesthetics and performance</h3>
-          </li>
-          <li className="faq-item">
-            <h3>Story-Driven Approach – We design experiences, not just deliverables</h3>
-          </li>
-          <li className="faq-item">
-            <h3>End-to-End Support – From idea to launch, we stay with you</h3>
-          </li>
-        </ul>
-      </section>
+        <section className="faq-section">
+      <div className="container">
+        <h1 className="title">FAQ</h1>
+
+        <div className="faq-list">
+          <div className={`faq-item ${openIndex === 0 ? 'active' : ''}`}>
+            <div className="faq-header" onClick={() => toggleFAQ(0)}>
+              <div className="faq-icon">{openIndex === 0 ? '✕' : '—'}</div>
+              <h3 className="faq-question">
+                All-in-One Studio – Tech, Design & Video under one roof
+              </h3>
+              <div className="faq-toggle">{openIndex === 0 ? '✕' : '+'}</div>
+            </div>
+            {openIndex === 0 && (
+              <div className="faq-answer">
+                <p>
+                  We used to be like every other agency, that is, until we changed to be like no other agency (7 years ago). Everything we do centers around a love for growth. It's super intentional, purposeful. With the goal of you not needing us ever again and fully able to grow on your own with the values.
+                </p>
+              </div>
+            )}
+          </div>
+
+          <div className={`faq-item ${openIndex === 1 ? 'active' : ''}`}>
+            <div className="faq-header" onClick={() => toggleFAQ(1)}>
+              <div className="faq-icon">—</div>
+              <h3 className="faq-question">
+                Tailored Solutions – Every project customized to your goals
+              </h3>
+              <div className="faq-toggle">+</div>
+            </div>
+            {openIndex === 1 && (
+              <div className="faq-answer">
+                <p>Your answer content goes here.</p>
+              </div>
+            )}
+          </div>
+
+          <div className={`faq-item ${openIndex === 2 ? 'active' : ''}`}>
+            <div className="faq-header" onClick={() => toggleFAQ(2)}>
+              <div className="faq-icon">—</div>
+              <h3 className="faq-question">
+                Creative + Functional – Balance of aesthetics and performance
+              </h3>
+              <div className="faq-toggle">+</div>
+            </div>
+            {openIndex === 2 && (
+              <div className="faq-answer">
+                <p>Your answer content goes here.</p>
+              </div>
+            )}
+          </div>
+
+          <div className={`faq-item ${openIndex === 3 ? 'active' : ''}`}>
+            <div className="faq-header" onClick={() => toggleFAQ(3)}>
+              <div className="faq-icon">—</div>
+              <h3 className="faq-question">
+                Story-Driven Approach – We design experiences, not just deliverables
+              </h3>
+              <div className="faq-toggle">+</div>
+            </div>
+            {openIndex === 3 && (
+              <div className="faq-answer">
+                <p>Your answer content goes here.</p>
+              </div>
+            )}
+          </div>
+
+          <div className={`faq-item ${openIndex === 4 ? 'active' : ''}`}>
+            <div className="faq-header" onClick={() => toggleFAQ(4)}>
+              <div className="faq-icon">—</div>
+              <h3 className="faq-question">
+                End-to-End Support – From idea to launch, we stay with you
+              </h3>
+              <div className="faq-toggle">+</div>
+            </div>
+            {openIndex === 4 && (
+              <div className="faq-answer">
+                <p>Your answer content goes here.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
 
       {/* Contact Section */}
-      <section id="contact" className="contact-section">
-        <h2>CONTACT US</h2>
+       <section id='contact' className="contact-us">
+      <div className="container">
+        <h1 className="title">CONTACT US</h1>
+
         <form className="contact-form" onSubmit={handleSubmit}>
-          <input 
-            type="text" 
+          <input
+            type="text"
             name="firstName"
-            placeholder="First Name" 
+            placeholder="First Name"
             value={formData.firstName}
-            onChange={handleInputChange}
+            onChange={handleChange}
+            className="form-input"
             required
-            aria-label="First name"
           />
-          <input 
-            type="text" 
+
+          <input
+            type="text"
             name="lastName"
-            placeholder="Last Name" 
+            placeholder="Last Name"
             value={formData.lastName}
-            onChange={handleInputChange}
+            onChange={handleChange}
+            className="form-input"
             required
-            aria-label="Last name"
           />
-          <input 
-            type="email" 
+
+          <input
+            type="email"
             name="email"
-            placeholder="Email" 
+            placeholder="Email"
             value={formData.email}
-            onChange={handleInputChange}
+            onChange={handleChange}
+            className="form-input"
             required
-            aria-label="Email address"
           />
-          <textarea 
+
+          <textarea
             name="message"
             placeholder="How can we help you?"
             value={formData.message}
-            onChange={handleInputChange}
+            onChange={handleChange}
+            className="form-textarea"
+            rows="5"
             required
-            aria-label="Your message"
-          ></textarea>
-          <button type="submit" aria-label="Submit contact form">Submit</button>
-        </form>
-      </section>
+          />
 
-      {/* Let's Chat Section */}
+          <button type="submit" className="submit-btn">
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
+
+      {/* Let's Chat Section
       <section id="chat" className="chat-section">
         <h2>LET'S CHAT</h2>
         <div className="chat-links">
@@ -455,9 +622,10 @@ const Home = () => {
             <p>reach out</p>
           </div>
         </div>
-      </section>
+      </section>*/}
     </div>
+    </div> 
   )
 }
 
-export default Home
+export default Home;  

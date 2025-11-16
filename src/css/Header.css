@@ -1,0 +1,46 @@
+/* Header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 80px;
+  background-color: #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  font-size: 25px;
+}
+
+.header-logo {
+  width: 75px;
+  height: auto;
+}
+
+.header-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: color 0.3s ease;
+  font-family: inherit;
+}
+
+.nav-button:hover {
+  color: #dc2626;
+}
+
+.nav-button:focus {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
