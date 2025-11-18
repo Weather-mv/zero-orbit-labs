@@ -1,7 +1,16 @@
 import React, { useState } from 'react'
+import XIcon from "@mui/icons-material/X";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import ReactPlayer from "react-player";
+import VideoBlock from '../components/VideoBlock.jsx'
+
 import '../css/Home.css'
 
 const Home = () => {
+
+
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -114,17 +123,18 @@ const Home = () => {
             onClick={() => handleSocialClick('email')}
             className="social-button"
             aria-label="Send us an email"
-            title="Email us"z
+            title="Email us"
           >
-            📧
+           <MailOutlineIcon fontSize="large" color="red" />
           </button>
           <button 
-            onClick={() => handleSocialClick('facebook')}
+            onClick={() => handleSocialClick('LinkedIn')}
             className="social-button"
-            aria-label="Visit our Facebook page"
-            title="Facebook"
+            aria-label="Visit our LinkedIn Page"
+            title="LinkedIn"
           >
-            📘
+           <LinkedInIcon fontSize="large" color="white"  />
+
           </button>
           <button 
             onClick={() => handleSocialClick('twitter')}
@@ -132,7 +142,16 @@ const Home = () => {
             aria-label="Visit our Twitter page"
             title="Twitter"
           >
-            🐦
+            <XIcon  fontSize="large" color="white" />
+          </button>
+
+          <button 
+            onClick={() => handleSocialClick('Instragram')}
+            className="social-button"
+            aria-label="Visit our Instagram page"
+            title="Instagram"
+          >
+            <InstagramIcon fontSize="large" color="white"  />
           </button>
         </aside>
 
@@ -165,9 +184,9 @@ const Home = () => {
     </button>
      </div>
 
-      {/* Video Section */}
+   
       <section id="video" className="video-section">
-        <h2>VIDEO</h2>
+        {/* <h2>VIDEO</h2> */}
         {/* Placeholder for video content */}
       </section>
 
@@ -181,13 +200,13 @@ const Home = () => {
           <img src="../src/assets/Vector Skill Academy.svg" alt="" />
         </div>
         <div className="client-logo">
-          <div className="shape-2"></div>
+        <img src="../src/assets/AFPS.png" alt="" />
         </div>
         <div className="client-logo">
-          <div className="shape-3"></div>
+          <img src="../src/assets/PC.png" alt="" />
         </div>
         <div className="client-logo">
-          <div className="shape-4"></div>
+          <img src="../src/assets/RSS.png" alt="" />
         </div>
       </div>
     </div>
@@ -281,13 +300,13 @@ const Home = () => {
   <p className="custom-description">
     We'll create a Program that's just right for you. Precision-crafted solutions tailored to your unique brand needs. Elevating your digital experience and evolving your digital marketing strategies to drive radical results.
   </p>
-  <button className="btn-primary" onClick={handleLetsTalk} aria-label="Contact us for custom solutions">
+  <button className="btn-custom" onClick={handleLetsTalk} aria-label="Contact us for custom solutions">
     Let's Talk
   </button>
 </section>
 
-      {/* Works Section */}
-      <div id='works' className="works-container">
+    {/* Works Section */}
+    <div id='works' className="works-container">
 
     <header className="works-header">
       <h1>WORKS</h1>
@@ -303,18 +322,23 @@ const Home = () => {
       </div>
     </header>
 
+import { useState } from 'react';
 
-    <article className="project-item">
-      <div className="project-content">
-        <h3>Pheonix Citadell</h3>
-        <p>
-          We created a doodle animation promo video for Phoenix Citadell Insurance to leverage business sales in a fun, colorful, and visually appealing way.
-        </p>
-      </div>
-      <div className="project-image">
-        <div className="project-image-placeholder">Project Image</div>
-      </div>
-    </article>
+<article className="project-item">
+  <div className="project-content">
+    <h3>Pheonix Citadell</h3>
+    <p>
+      We created a doodle animation promo video for Phoenix Citadell Insurance to leverage business sales in a fun, colorful, and visually appealing way.
+    </p>
+  </div>
+
+  {/* VIDEO BLOCK WITH HOVER */}
+  <VideoBlock 
+    videoUrl="https://drive.google.com/file/d/1VC3G89DevkgSkB9-RjVQDX5V7BQR8o0q/view?usp=sharing"
+    thumbnailUrl="/path-to-your-thumbnail.jpg" // Add your thumbnail image path
+  />
+</article>
+
 
    <article className="project-item">
       <div className="project-content">
