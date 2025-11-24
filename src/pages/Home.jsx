@@ -3,35 +3,66 @@ import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import ReactPlayer from "react-player";
-import VideoBlock from '../components/VideoBlock.jsx'
+import swal from 'sweetalert';
 
 import '../css/Home.css'
 
 const Home = () => {
 
 
-
-  const [formData, setFormData] = useState({
+   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxLHZ-aBJppMmXMiRHsSoIaJHlpRMaJo3-18nmuPDRW0h97B_EdqmrahajH9FyEPbXt/exec";
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
-  };
+    setIsSubmitting(true);
+    
+    // Create FormData object
+    const formDataToSend = new FormData();
+    formDataToSend.append('firstName', formData.firstName);
+    formDataToSend.append('lastName', formData.lastName);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('message', formData.message);
 
+    try {
+      const response = await fetch(scriptURL, { 
+        method: "POST",
+        mode: 'no-cors', // This bypasses CORS
+        body: formDataToSend 
+      });
+      
+      // With no-cors mode, we can't read the response, but if no error is thrown, it succeeded
+      swal("Done", "Submitted Successfully.", "success");
+      
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      swal("Error", "Something went wrong. Please try again!", "error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const [openIndex, setOpenIndex] = useState(0);
 
@@ -191,7 +222,7 @@ const Home = () => {
       </section>
 
       {/* Clients Section */}
-      <section className="clients-section">
+      <section className="clients-section" id="clients">
     <h2>CLIENTS</h2>
     <div className="clients-slider-container">
       <div className="clients-slider">
@@ -305,7 +336,7 @@ const Home = () => {
   </button>
 </section>
 
-    {/* Works Section */}
+    {/* Works Section
     <div id='works' className="works-container">
 
     <header className="works-header">
@@ -322,7 +353,7 @@ const Home = () => {
       </div>
     </header>
 
-import { useState } from 'react';
+
 
 <article className="project-item">
   <div className="project-content">
@@ -332,25 +363,14 @@ import { useState } from 'react';
     </p>
   </div>
 
-  {/* VIDEO BLOCK WITH HOVER */}
   <VideoBlock 
-    videoUrl="https://drive.google.com/file/d/1VC3G89DevkgSkB9-RjVQDX5V7BQR8o0q/view?usp=sharing"
-    thumbnailUrl="/path-to-your-thumbnail.jpg" // Add your thumbnail image path
+    vimeoUrl="https://vimeo.com/1138962515"
+    thumbnailUrl="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fyoutube-thumbnail&psig=AOvVaw0Xk4pb3BDjSPrL9Er6HGv3&ust=1764075420478000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCKD15pjripEDFQAAAAAdAAAAABAL"
   />
 </article>
 
 
-   <article className="project-item">
-      <div className="project-content">
-        <h3>Growwed</h3>
-        <p>
-          We partnered with Growwed to create website and products, delivering a clean, modern, and engaging solution that reflects the beauty and fun of Growwed live.
-        </p>
-      </div>
-      <div className="project-image">
-        <div className="project-image-placeholder">Project Image</div>
-      </div>
-    </article>
+  
 
 
     <article className="project-item">
@@ -400,7 +420,7 @@ import { useState } from 'react';
       <div className="project-image">
         <div className="project-image-placeholder">Project Image</div>
       </div>
-    </article>
+    </article> */}
 
       {/* Why Choose Us Section */}
     <section className="why-choose-us">
@@ -559,11 +579,15 @@ import { useState } from 'react';
     </section>
 
       {/* Contact Section */}
-       <section id='contact' className="contact-us">
+   <section id='contact' className="contact-us">
       <div className="container">
         <h1 className="title">CONTACT US</h1>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form 
+          className="contact-form" 
+          onSubmit={handleSubmit}
+          name="submit-to-google-sheet"
+        >
           <input
             type="text"
             name="firstName"
@@ -572,6 +596,7 @@ import { useState } from 'react';
             onChange={handleChange}
             className="form-input"
             required
+            disabled={isSubmitting}
           />
 
           <input
@@ -582,6 +607,7 @@ import { useState } from 'react';
             onChange={handleChange}
             className="form-input"
             required
+            disabled={isSubmitting}
           />
 
           <input
@@ -592,6 +618,7 @@ import { useState } from 'react';
             onChange={handleChange}
             className="form-input"
             required
+            disabled={isSubmitting}
           />
 
           <textarea
@@ -602,12 +629,13 @@ import { useState } from 'react';
             className="form-textarea"
             rows="5"
             required
+            disabled={isSubmitting}
           />
 
-          <button type="submit" className="submit-btn">
-            Submit
+          <button type="submit" className="submit-btn" disabled={isSubmitting}>
+            {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>
-        </form>
+        </form> 
       </div>
     </section>
 
@@ -648,8 +676,7 @@ import { useState } from 'react';
         </div>
       </section>*/}
     </div>
-    </div> 
   )
 }
 
-export default Home;  
+export default Home;

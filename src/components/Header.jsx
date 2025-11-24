@@ -20,8 +20,8 @@ const Header = () => {
         <button onClick={() => scrollToSection("solutions")} className="nav-button">
           Solutions
         </button>
-        <button onClick={() => scrollToSection("works")} className="nav-button">
-          Works
+        <button onClick={() => scrollToSection("clients")} className="nav-button">
+         Clients
         </button>
         <button onClick={() => scrollToSection("contact")} className="nav-button">
           Contact
