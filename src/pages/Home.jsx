@@ -197,9 +197,7 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="email">
-          <a href="mailto:hello@zeroorbitlabs.in">hello@zeroorbitlabs.in</a>
-        </div>
+      
       </section>
 
       {/* PROJECT CTA -------------------------------------- */}
