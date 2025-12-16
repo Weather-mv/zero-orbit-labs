@@ -7,11 +7,18 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import swal from 'sweetalert';
 import '../css/Home.css';
+import AFPS from '../assets/AFPS.png';
+import PC from '../assets/PC.png';
+import RSS from '../assets/RSS.png';
+import fab from '../assets/fab.png';
+import wonderlab from '../assets/wonderlab.png';
 
 const scriptURL =
   "https://script.google.com/macros/s/AKfycbxLHZ-aBJppMmXMiRHsSoIaJHlpRMaJo3-18nmuPDRW0h97B_EdqmrahajH9FyEPbXt/exec";
 
 const Home = () => {
+
+
   const sliderRef = useRef(null);
 
   // Clone slider rows once
@@ -215,19 +222,19 @@ const Home = () => {
         <div className="clients-slider-container">
           <div className="clients-slider" ref={sliderRef}>
             <div className="client-logo">
-              <img src="../src/assets/AFPS.png" alt="AFPS" />
+              <img src={AFPS} alt="AFPS" />
             </div>
             <div className="client-logo">
-              <img src="../src/assets/PC.png" alt="PC" />
+              <img src={PC} alt="PC" />
             </div>
             <div className="client-logo">
-              <img src="../src/assets/RSS.png" alt="RSS" />
+              <img src={RSS} alt="RSS" />
             </div>
             <div className="client-logo">
-              <img src="../src/assets/fab.png" alt="FAB" />
+              <img src={fab}alt="FAB" />
             </div>
             <div className="client-logo">
-              <img src="../src/assets/wonderlab.png" alt="Wonderlab" />
+              <img src={wonderlab}alt="Wonderlab" />
             </div>
           </div>
         </div>
